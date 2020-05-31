@@ -1,0 +1,14 @@
+<ion-item *ngIf="pizza" [routerLink]="'/pizza/' + pizza.id" [detail]="false">
+  <div slot="start" [class]="!pizza.read ? 'dot dot-unread' : 'dot'"></div>
+  <ion-label class="ion-text-wrap">
+    <h2>
+      {{ pizza.nom }}
+      <span class="date">
+        <ion-note>{{ pizza.prix }} €</ion-note>
+        <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+      </span>
+    </h2>
+    <h3> {{ pizza.ingredients }} </h3>
+    <h3 *ngFor="let ingredient of getIngredients()"></h3>
+  </ion-label>
+  </ion-item>
